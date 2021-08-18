@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"google.golang.org/grpc"
-	pb "sachithk.com/go-grpctesting/usermgmt"
+	pb "github.com/sachithKay/simple-grpc/usermgmt"
 	"math/rand"
 	"net"
 )

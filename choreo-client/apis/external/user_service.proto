@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+//go:generate go run ${PROJECT_DIR}/tools/fake_gen.go
+
+package apis.external;
+
+option go_package = ".";
+
+
+service UserService {
+    // Organizations
+    rpc GetOrganization (GetOrganizationRequest) returns (GetOrganizationResponse);
+    rpc DeleteOrganization (DeleteOrganizationRequest) returns (DeleteOrganizationResponse);
+}
+
+message Organization {
+    int64 id = 1;
+    string uuid = 2;
+    string handle = 3;
+    string name = 4;
+}
+
+message GetOrganizationRequest {
+    string organization_name = 1;
+}
+
+message GetOrganizationResponse {
+    Organization organization = 1;
+    bool is_admin = 2 ;
+}
+
+message DeleteOrganizationRequest {
+    string organization_name = 1;
+}
+
+message DeleteOrganizationResponse {
+    Organization organization = 1;
+}
